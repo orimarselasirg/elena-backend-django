@@ -1,0 +1,15 @@
+.home-container{
+    /* background-color:rgb(241, 238, 234); */
+    background-color: #bcdbd2;
+    width: 100%;
+    height: 100vh;
+}
+.body-home-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    height: 674px;
+}

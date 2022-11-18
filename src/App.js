@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route} from 'react-router-dom'
+import {useSelector} from 'react-redux'
+import 'bulma/css/bulma.min.css'
+import {Login, Home, TaskCreator, UserCreator} from '../src/pages'
+import {TaskDetails} from './pages/index'
+
+
 
 function App() {
+  const user = useSelector(state => state.data.user)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Routes>
+        <Route path="/createuser" element={<UserCreator/>} />
+        <Route path="/home" element={user.length>0 ? <Home/> : <Login/>} />
+        <Route path="/" element={<Login/>} />
+        <Route path="/taskcreator" element={<TaskCreator/>} exact/>
+        <Route path="/taskdetail/:id" element={<TaskDetails/>} exact/>
+    </Routes>
+  )
 }
 
 export default App;

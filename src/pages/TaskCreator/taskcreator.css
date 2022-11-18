@@ -1,0 +1,49 @@
+.taskcreator-container{
+    /* background-color:rgb(241, 238, 234); */
+    background-color: #bcdbd2;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.creator-container{
+    width: 300px;
+    background-color:rgb(203 203 203);
+    height: 454px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 34px 5px;
+}
+
+.label-task{
+    text-align: center;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.label-description{
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 7px;
+}
+
+.input-task{
+    width: 100%;
+}
+
+.field.is-grouped{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 28px;
+}
+
+.danger{
+    color : red;
+    text-align: center;
+}
