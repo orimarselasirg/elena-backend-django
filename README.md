@@ -27,7 +27,7 @@ node-v
 
 Sino en el siguiente link puedes descargarla gratuitamente - <https://nodejs.org/es/download/> .
 
-Luego, deberás ingresar a nuestro repositorio de elenas-frontebd-react:
+Luego, deberás ingresar a nuestro repositorio de elenas-frontend-react:
 https://github.com/orimarselasirg/elenas-frontend-react
 
 Copia el repositorio haciendo click en Fork, así obtendrás una copia del mismo en tu Github.
