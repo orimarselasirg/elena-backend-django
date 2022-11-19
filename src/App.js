@@ -7,11 +7,12 @@ import {TaskDetails} from './pages/index'
 
 
 function App() {
-  const user = useSelector(state => state.data.user)
+  const data = useSelector(state => state.data)
+  const token =data.user.token
   return (
     <Routes>
         <Route path="/createuser" element={<UserCreator/>} />
-        <Route path="/home" element={user.length>0 ? <Home/> : <Login/>} />
+        <Route path="/home" element={token ? <Home/> : <Login/>} />
         <Route path="/" element={<Login/>} />
         <Route path="/taskcreator" element={<TaskCreator/>} exact/>
         <Route path="/taskdetail/:id" element={<TaskDetails/>} exact/>

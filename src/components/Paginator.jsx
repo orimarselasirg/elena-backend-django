@@ -4,7 +4,7 @@ function Paginator({task, sum, setSum, sum2, setSum2, page, longPage}) {
 const [pagina, setPagina] = useState(0); // estado pagina prev
 
 function next(){
-    if(sum2 >= task[0].length){
+    if(sum2 >= task.length){
     } else {
         setSum(sum + page)
         setSum2(sum2 + page)
@@ -13,7 +13,7 @@ function next(){
 }
 
 function prev(){
-    if (sum === task[0].length) {
+    if (sum === task.length) {
     } else {
       if(sum>0){
         setSum(sum - page);
@@ -28,8 +28,8 @@ function prev(){
         <ul className="pagination-list">
             {
                 longPage?.map(p=>(
-                    longPage.indexOf(p) === pagina ? <li><span className="pagination-link is-current">{p}</span></li> 
-                    :<li><span className="pagination-link">{p}</span></li>
+                    longPage.indexOf(p) === pagina ? <li key={p}><span className="pagination-link is-current">{p}</span></li> 
+                    :<li key={p} ><span className="pagination-link">{p}</span></li>
                 ))
             }
         </ul>

@@ -1,31 +1,25 @@
-import React from "react";
+import React, {useState} from "react";
 import { BsFillPersonFill, BsArrowRightShort } from "react-icons/bs";
 import { useNavigate, NavLink } from "react-router-dom";
-import { useState } from "react";
 import { useDispatch } from 'react-redux'
 import {postUser} from '../.././redux'
-
 import "./login.css";
 
-function Login(props) {
 
-    
+function Login(props) {
 const dispatch = useDispatch()
 const navigate = useNavigate()
-
 
 const [input, setInput] = useState({
     username : '',
     password : ''
 })
 
-
 function inputHandler(e){
     setInput({
         ...input,
         [e.target.name] : e.target.value
     })
-
 }
 
 const handlerClick =(e)=>{

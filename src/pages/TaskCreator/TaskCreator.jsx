@@ -6,13 +6,14 @@ import swal from 'sweetalert'
 import './taskcreator.css'
 
 function TaskCreator(props) {
-const user = useSelector(state => state.data.user[0])
+const dataUser = useSelector(state => state.data)
+const userId = dataUser.user.user.id
 const dispatch = useDispatch()
 const navigate = useNavigate()
 const [data, setData] = useState({
     task : '',
     description : '',
-    user : user.user.id
+    user : userId
 })
 
 function handlerChange(e){
@@ -32,13 +33,32 @@ function handlerClick(e){
             button: "Ok",
         })
     }
-    dispatch(taskCreator(data))
+    dispatch(taskCreator(data)).then((res)=>{
+        if (res.status){
+            swal({
+                title: 'Creación exitosa',
+                text: '¿Quieres crear una tarea mas?',
+                icon: 'success',
+                buttons :{
+                Si: true,
+                No : true,
+                }
+            }).then((value)=>{
+                switch(value){
+                case 'No':
+                    navigate('/home')
+                    break
+                default:
+                    break
+                }
+            })
+        }
+    })
     setData({
         task : '',
         description : '',
-        user : user.user.id
+        user : userId
     })
-    navigate('/home')
 }
 
     return (
@@ -47,14 +67,14 @@ function handlerClick(e){
             <label className="label  label-task">TAREA</label>
             {data.task === '' ? <p className='danger help is-danger'>Debe indicar una Tarea</p> : '' }
             <div className="control">
-                <input className="input" type="text" placeholder="Nombre de la tarea" name='task' onChange={e=>handlerChange(e)}/>
+                <input className="input" type="text" value ={data.task} placeholder="Nombre de la tarea" name='task' onChange={e=>handlerChange(e)}/>
 
             </div>
             <div className="field">
                 <label className="label label-description">DESCRIPCIÓN</label>
                 {data.description === '' ? <p className='danger help is-danger'>Descripción no puede estar vacio</p> : '' }
                 <div className="control">
-                    <textarea className="textarea" placeholder="Describa su tarea" name='description' onChange={e=>handlerChange(e)}></textarea>
+                    <textarea className="textarea" value ={data.description} placeholder="Describa su tarea" name='description' onChange={e=>handlerChange(e)}></textarea>
                 </div>
             </div>
             <div className="field is-grouped">

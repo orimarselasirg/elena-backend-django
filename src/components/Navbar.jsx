@@ -1,15 +1,16 @@
 import React from 'react';
-import SearchBar from './SearchBar';
 import {useSelector, useDispatch} from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import { logout } from '../redux';
+import SearchBar from './SearchBar';
 import './navbar.css'
 
 function Navbar(props) {
-    const user = useSelector(state => state.data.user)
+    const dataUser = useSelector(state => state.data)
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const token = user[0].token
+    const token = dataUser.user.token
+    const userName = dataUser.user.user.name
 
     const handlerClick=(e, token)=>{
         e.preventDefault()
@@ -30,7 +31,7 @@ function Navbar(props) {
                 <div className="navbar-end ending">
                     <div className="navbar-item">
                         <div className="buttons profile">
-                            <span className='help is-success'>{user[0].user.name}</span>
+                            <span className='help is-success'>{userName}</span>
                             <div className="logout-button button is-primary" onClick={(e)=>handlerClick(e, token)}>
                             <strong>Salir</strong>
                             </div>

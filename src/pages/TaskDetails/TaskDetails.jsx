@@ -5,16 +5,14 @@ import {taskModifier} from '../../redux/index'
 import './taskdetails.css'
 
 function TaskDetails(props) {
-const tasks = useSelector(state => state.task.task[0])
+const dataTasks = useSelector(state => state.task)
 const {id} = useParams()
-
-const task = tasks.filter(task => task.id === parseInt(id)) // Siempre es necesario parsear el id de params
-
+const task = dataTasks.task.filter(task => task.id === parseInt(id)) // Siempre es necesario parsear el id de params
 
 const dispatch = useDispatch()
 const navigate = useNavigate()
 const [input, setInput] = useState({
-    task : task[0].task,
+    task : task[0].id,
     description : task[0].description,
     complete : task[0].complete,
     user : parseInt(task[0].user)
@@ -37,13 +35,13 @@ function handlerClick(e){
         <div className='field detail-container' id='form-task'>
             <label className="label  label-task">Nuevo nombre de la tarea</label>
             <div className="control">
-                <input className="input" type="text" placeholder={input.task} name='task' onChange={e=>handlerChange(e)}/>
+                <input className="input" type="text" value={input.task} placeholder='Ingrese nombre de la tarea' name='task' onChange={e=>handlerChange(e)}/>
 
             </div>
             <div className="field">
                 <label className="label label-description">Nueva descrición de la tarea</label>
                 <div className="control">
-                    <textarea className="textarea" placeholder={input.description} name='description' onChange={e=>handlerChange(e)}></textarea>
+                    <textarea className="textarea" value={input.description} placeholder='Ingrese una descripción' name='description' onChange={e=>handlerChange(e)}></textarea>
                 </div>
             </div>
             <div className="field is-grouped">

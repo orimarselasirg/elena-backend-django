@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import {useDispatch } from 'react-redux'
 import {useNavigate} from 'react-router-dom'
-import { FaUserAlt,  } from "react-icons/fa";
 import {FiMail} from "react-icons/fi";
 import {CgPassword} from "react-icons/cg";
-import swal from 'sweetalert'
+import {FaUserAlt} from "react-icons/fa";
 import {userCreator} from '../../redux'
+import swal from 'sweetalert'
 import './usercreator.css'
 
 function UserCreator(props) {
@@ -45,22 +45,20 @@ function UserCreator(props) {
                 <div className="field">
                     <label className="label">Nombre</label>
                     <div className="control">
-                        <input className="input" type="text" placeholder="Ingrese su nombre" name = 'name' onChange={(e)=>changeHandler(e)}/>
+                        <input className="input"  value={data.name} type="text" placeholder="Ingrese su nombre" name = 'name' onChange={(e)=>changeHandler(e)}/>
                     </div>
                 </div>
 
             <div className="field">
             <label className="label">Apellido</label>
-            {/* <div className="control has-icons-left has-icons-right"> */}
-                <input className="input" type="text" placeholder="Ingrese su apellido" name = 'last_name' onChange={(e)=>changeHandler(e)}/>
-            {/* <p className="help is-success">This username is available</p> */}
+                <input className="input" value={data.last_name} type="text" placeholder="Ingrese su apellido" name = 'last_name' onChange={(e)=>changeHandler(e)}/>
             </div>
             
             <div className="field">
                 <label className="label">Nombre de Usuario</label>
                 <div className="control">
                 <div className="control has-icons-left has-icons-right">
-                    <input className="input" type="text" placeholder="Ingrese su nombre de usuario" name = 'username' onChange={(e)=>changeHandler(e)}/>
+                    <input className="input" value={data.username} type="text" placeholder="Ingrese su nombre de usuario" name = 'username' onChange={(e)=>changeHandler(e)}/>
                     <span className="icon is-small is-left">
                         <i><FaUserAlt/></i>
                     </span>
@@ -71,7 +69,7 @@ function UserCreator(props) {
             <div className="field">
                 <label className="label">Email</label>
                 <div className="control has-icons-left has-icons-right">
-                    <input className="input" type="email" placeholder="Ingrese su email" name ='email' onChange={(e)=>changeHandler(e)}/>
+                    <input className="input" value={data.email} type="email" placeholder="Ingrese su email" name ='email' onChange={(e)=>changeHandler(e)}/>
                     <span className="icon is-small is-left">
                         <i><FiMail/></i>
                     </span>
@@ -83,7 +81,7 @@ function UserCreator(props) {
             <div className="field">
                 <label className="label">Contraseña</label>
                 <div className="control has-icons-left has-icons-right">
-                    <input className="input" type="password" placeholder="Registre una contraseña" name ='password' onChange={(e)=>changeHandler(e)}/>
+                    <input className="input" value={data.password} type="password" placeholder="Registre una contraseña" name ='password' onChange={(e)=>changeHandler(e)}/>
                     <span className="icon is-small is-left">
                         <i><CgPassword/></i>
                     </span>
