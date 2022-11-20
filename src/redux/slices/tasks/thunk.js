@@ -57,15 +57,15 @@ export const taskDeleter = (id)=>{
 
 export const taskSearch = (info, id)=>{  
   return async(dispatch) =>{
-    await api.get(`tareas/buscar/${info}`).then((res)=>{
+    await api.get(`tareas/buscar/${info}/${id}`).then((res)=>{
           if(res.data.length === 0){
-            dispatch(getTask(id))
-              swal({
-                title: "ATENCIÓN",
+            swal({
+              title: "ATENCIÓN",
                 text: `No se encontro ninguna tarea asociada a la busqueda`,
                 icon: "warning",
                 button: "Ok",
-            })  
+              })  
+              dispatch(getTask(id))
           } else {
             dispatch(storeTaskUser(res.data))    
           }
