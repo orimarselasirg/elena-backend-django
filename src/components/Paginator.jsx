@@ -4,22 +4,17 @@ function Paginator({task, sum, setSum, sum2, setSum2, page, longPage}) {
 const [pagina, setPagina] = useState(0); // estado pagina prev
 
 function next(){
-    if(sum2 >= task.length){
-    } else {
+    if(sum2 < task.length){
         setSum(sum + page)
         setSum2(sum2 + page)
         setPagina(pagina+1) 
-    }    
-}
+    }}
 
 function prev(){
-    if (sum === task.length) {
-    } else {
-      if(sum>0){
+    if(sum>0){
         setSum(sum - page);
         setSum2(sum2 - page); 
         setPagina(pagina-1)
-    }
 }}
     return (
         <nav className="pagination is-centered" role="navigation" aria-label="pagination">

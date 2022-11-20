@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a84eb33f-cc67-4575-84fe-67a797069211/deploy-status)](https://app.netlify.com/sites/cute-beijinho-a64cd6/deploys)
 # APP creada con react para challenge
 <br/>
 <br/>
