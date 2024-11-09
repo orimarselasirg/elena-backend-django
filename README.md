@@ -5,7 +5,7 @@
 <img src ='https://www.elenas.co/co/wp-content/uploads/2022/09/elenas.png'/>
 <br/>
 <br/>
-<p align="justify"> Elenas Task Manager, es un proyecto individual desarrollado para una prueba tecnica de la empresa Elenas, los principales requerimiento estan basado en el proceso de login de un usuario el cual puede crear, editar, modificar y eliminar solo las taras relacionadas a su perfil, el diseño esta basado en algo simple, gestionando la tareas como una tarjetas independientes para comodida y mejor gestion del usuario.</p> 
+<p align="justify"> Elenas Task Manager, es un proyecto de practica, los principales requerimiento estan basado en el proceso de login de un usuario el cual puede crear, editar, modificar y eliminar solo las taras relacionadas a su perfil, el diseño esta basado en algo simple, gestionando la tareas como una tarjetas independientes para comodida y mejor gestion del usuario.</p> 
 
 <br/>
 <br/>
